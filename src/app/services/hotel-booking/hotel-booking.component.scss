@@ -1,0 +1,21 @@
+.service-page h1 {
+  color: var(--brand-cobalt);
+}
+.service-page .lead {
+  color: #444;
+}
+.service-page ul {
+  color: #555;
+}
+.service-page img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+@media (max-width: 767.98px) {
+  .service-page {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}

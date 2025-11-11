@@ -1,0 +1,239 @@
+<div id="heroCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000" data-bs-touch="true"
+    data-bs-pause="false">
+
+    <div class="carousel-inner">
+        <div *ngFor="let img of carouselImages; let i = index" class="carousel-item" [class.active]="i === 0">
+            <img [src]="img" class="d-block w-100 hero-img" alt="Slide {{ i + 1 }}">
+            <div class="carousel-caption d-none d-md-block">
+                <h2 class="fw-bold text-white text-shadow">Explore Ladakh with Golo Holidays</h2>
+                <p class="text-light">Adventure, Culture & Local Vibes Await You</p>
+                <a routerLink="/packages" class="btn btn-brand mt-3">View Packages</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Trip Cards Section -->
+<section class="container py-5">
+    <h2 class="text-center fw-bold mb-5">Popular Tours</h2>
+    <div class="row g-4 horizontal-scroll">
+
+        <!-- Ladakh Trip Card -->
+        <div class="col-md-4">
+            <div class="card shadow-sm h-100">
+                <img src="assets/ladakh.jpeg" class="card-img-top" alt="Ladakh Trip">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title fw-bold">Ladakh Trip</h5>
+                    <p class="card-text text-muted">Explore the stunning landscapes, monasteries, and culture of Ladakh
+                        with our expert guides.</p>
+                    <a routerLink="/packages" class="btn btn-brand mt-auto">View Packages</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Spiti Trip Card -->
+        <div class="col-md-4">
+            <div class="card shadow-sm h-100">
+                <img src="assets/ladakh-carousel.jpeg" class="card-img-top" alt="Spiti Trip">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title fw-bold">Spiti Trip</h5>
+                    <p class="card-text text-muted">Discover the remote beauty and adventure of Spiti Valley, perfect
+                        for thrill seekers and nature lovers.</p>
+                    <a routerLink="/packages" class="btn btn-brand mt-auto">View Packages</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Kashmir Trip Card -->
+        <div class="col-md-4">
+            <div class="card shadow-sm h-100">
+                <img src="assets/kashmir.jpeg" class="card-img-top" alt="Kashmir Trip">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title fw-bold">Kashmir Trip</h5>
+                    <p class="card-text text-muted">Experience the beauty of Kashmir with its lakes, gardens, and
+                        snow-capped mountains.</p>
+                    <a routerLink="/packages" class="btn btn-brand mt-auto">View Packages</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section class="about container py-5">
+    <div class="row align-items-center">
+        <div class="col-lg-6 mb-4 mb-lg-0">
+            <img src="assets/sdhop.webp" alt="Golo Holidays in Ladakh" class="img-fluid">
+        </div>
+        <div class="col-lg-6">
+            <h2 class="fw-bold mb-3">Explore Ladakh with Golo Holidays</h2>
+            <p>Golo Holidays is your trusted travel agency in Ladakh, offering bike tours, sightseeing trips, and local
+                experiences. Our expert guides ensure a safe and unforgettable journey across Ladakh, Spiti Valley, and
+                Kashmir.</p>
+            <p>Whether you are looking for adventure, culture, or photography tours, our packages are tailored to give
+                you the ultimate experience of Northern India’s breathtaking landscapes.</p>
+            <a routerLink="/about-us" class="btn btn-brand mt-3">Learn More About Us</a>
+        </div>
+    </div>
+</section>
+
+
+<!-- 2️⃣ Featured Trips -->
+<section class="featured-trips py-5">
+    <div class="container text-center">
+        <h2 class="fw-bold text-brand mb-4">Explore Our Top Adventures</h2>
+        <div class="row g-4 horizontal-scroll">
+            <div class="col-md-4" *ngFor="let trip of featuredTrips">
+                <div class="card shadow border-0 h-100">
+                    <img [src]="trip.image" class="card-img-top trip-img" [alt]="trip.title">
+                    <div class="card-body">
+                        <h5 class="fw-bold">{{ trip.title }}</h5>
+                        <p class="text-muted small">{{ trip.description }}</p>
+                        <a [routerLink]="['/packages']" class="btn btn-brand w-100">View Packages</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 3️⃣ Why Choose Us -->
+<section class="why-us py-5 bg-light text-center">
+    <div class="container">
+        <h2 class="fw-bold text-brand mb-4">Why Choose Golo Holidays?</h2>
+        <div class="row g-4 horizontal-scroll">
+            <div class="col-md-4">
+                <i class="bi bi-geo-alt-fill fs-1 text-brand"></i>
+                <h5 class="fw-bold mt-3">Local Expertise</h5>
+                <p class="text-muted small">Our team knows Ladakh, Spiti, and Kashmir inside out — ensuring authentic
+                    experiences.</p>
+            </div>
+            <div class="col-md-4">
+                <i class="bi bi-shield-check fs-1 text-brand"></i>
+                <h5 class="fw-bold mt-3">Safe & Secure Trips</h5>
+                <p class="text-muted small">We prioritize your safety, from experienced guides to verified
+                    accommodations.</p>
+            </div>
+            <div class="col-md-4">
+                <i class="bi bi-star-fill fs-1 text-brand"></i>
+                <h5 class="fw-bold mt-3">5-Star Rated Experiences</h5>
+                <p class="text-muted small">Our travelers love us! Read our reviews and testimonials from real
+                    adventurers.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="services py-5">
+    <div class="container text-center">
+        <h2 class="fw-bold text-brand mb-4">Our Travel Services</h2>
+        <p class="text-muted mb-4">We cover everything from hotels to local experiences to make your trip unforgettable.
+        </p>
+
+        <!-- Tabs -->
+        <ul class="nav nav-pills justify-content-center mb-4" id="serviceTabs">
+            <li class="nav-item" *ngFor="let cat of serviceCategories; let i = index">
+                <button class="nav-link" [ngClass]="{active: activeTab === cat.key}" (click)="activeTab = cat.key">
+                    {{ cat.label }}
+                </button>
+            </li>
+        </ul>
+
+        <!-- Services Grid -->
+        <div class="row g-4 justify-content-center">
+            <div class="col-6 col-md-3" *ngFor="let s of filteredServices">
+                <div class="card border-0 shadow-sm p-4 h-100 service-card">
+                    <i [class]="s.icon + ' fs-1 text-brand mb-3'"></i>
+                    <h6 class="fw-bold">{{ s.name }}</h6>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+
+<!-- 4️⃣ Popular Packages -->
+<section class="popular-packages py-5">
+    <div class="container text-center">
+        <h2 class="fw-bold text-brand mb-4">Popular Packages</h2>
+        <div class="row g-4 horizontal-scroll">
+            <div class="col-md-4" *ngFor="let pkg of popularPackages">
+                <div class="card shadow border-0 h-100 package-card">
+                    <img [src]="pkg.image" [alt]="pkg.title" class="card-img-top package-img">
+                    <div class="card-body">
+                        <h5 class="fw-bold">{{ pkg.title }}</h5>
+                        <p class="text-muted small">{{ pkg.shortDescription }}</p>
+                        <a [routerLink]="['/packages', pkg.slug]" class="btn btn-brand w-100">View Details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mt-4">
+            <a routerLink="/packages" class="btn btn-outline-brand">View All Packages</a>
+        </div>
+    </div>
+</section>
+<section class="cta py-5 text-center text-white">
+    <div class="container">
+        <h2 class="fw-bold mb-3">Ready for Your Next Adventure?</h2>
+        <p class="mb-4">Let’s plan your dream trip to Ladakh, Spiti, or Kashmir today.</p>
+        <a routerLink="/contact" class="btn btn-light px-4 py-2 fw-bold">Contact Us</a>
+    </div>
+</section>
+<!-- 5️⃣ Testimonials -->
+<section class="testimonials py-5 bg-light">
+    <div class="container text-center">
+        <h2 class="fw-bold text-brand mb-4">What Our Travelers Say</h2>
+        <div class="row g-4">
+            <div class="col-md-4" *ngFor="let review of testimonials">
+                <div class="card border-0 shadow-sm p-4">
+                    <p class="text-muted">“{{ review.message }}”</p>
+                    <h6 class="fw-bold mt-3">{{ review.name }}</h6>
+                    <small class="text-muted">{{ review.location }}</small>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 6️⃣ Latest Blogs -->
+<section class="blogs py-5">
+    <div class="container text-center">
+        <h2 class="fw-bold text-brand mb-4">Travel Stories & Tips</h2>
+        <div class="row g-4">
+            <div class="col-md-4" *ngFor="let blog of blogs">
+                <div class="card shadow border-0 h-100">
+                    <img [src]="blog.image" class="card-img-top blog-img" [alt]="blog.title">
+                    <div class="card-body">
+                        <h5 class="fw-bold">{{ blog.title }}</h5>
+                        <p class="text-muted small">{{ blog.excerpt }}</p>
+                        <a [routerLink]="['/blogs', blog.slug]" class="btn btn-brand w-100">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 7️⃣ Gallery Preview -->
+<section class="gallery-preview py-5 bg-light">
+    <div class="container text-center">
+        <h2 class="fw-bold text-brand mb-4">Captured Moments</h2>
+        <div class="row g-3">
+            <div class="col-6 col-md-2" *ngFor="let img of galleryPreview">
+                <img [src]="img" class="rounded gallery-thumb">
+            </div>
+        </div>
+        <div class="mt-4">
+            <a routerLink="/gallery" class="btn btn-outline-brand">View Full Gallery</a>
+        </div>
+    </div>
+</section>
+
+<!-- 8️⃣ CTA -->
+
+
+<app-promo-popup></app-promo-popup>

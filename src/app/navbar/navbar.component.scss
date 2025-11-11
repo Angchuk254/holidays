@@ -1,0 +1,37 @@
+.bg-brand {
+  background-color: var(--brand-cobalt) !important;
+}
+
+.text-brand {
+  color: var(--brand-cobalt) !important;
+}
+
+.nav-link {
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: #ffd700 !important; /* soft golden hover for contrast */
+}
+
+.btn-light.text-brand:hover {
+  background-color: #e7e7e7 !important;
+}
+
+.btn-brand {
+  background-color: var(--brand-cobalt);
+  color: #fff;
+  border-radius: 25px;
+}
+
+.btn-brand:hover {
+  background-color: #003a8c;
+}
+.brandLogo {
+  background: linear-gradient(90deg, #009bff 0%, #00d37f 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+}

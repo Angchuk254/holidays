@@ -1,0 +1,28 @@
+.container {
+  min-height: 80vh;
+}
+
+.bg-brand {
+  background-color: var(--brand-cobalt);
+}
+
+.btn-brand {
+  background-color: #ffd700;
+  color: #0b3d91;
+  font-weight: bold;
+}
+
+.btn-brand:hover {
+  background-color: #e6c200;
+}
+
+.card {
+  border-radius: 12px;
+}
+
+.card-img-top {
+  height: 180px;
+  object-fit: cover;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}

@@ -1,0 +1,43 @@
+.footer {
+  background: linear-gradient(135deg, var(--brand-cobalt), #0b3d91);
+  color: #fff;
+  position: relative;
+}
+
+.footer-links a {
+  color: rgba(255, 255, 255, 0.85);
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  color: #ffd700; /* gold accent */
+  padding-left: 4px;
+}
+
+.footer .social-icons a {
+  transition: all 0.3s ease;
+}
+
+.footer .social-icons a:hover {
+  color: #ffd700;
+  transform: scale(1.15);
+}
+
+.footer hr {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.footer strong {
+  color: #fff;
+}
+
+.brandLogo {
+  background: linear-gradient(90deg, #009bff 0%, #00d37f 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+}
+.list-unstyled {
+  cursor: pointer;
+}

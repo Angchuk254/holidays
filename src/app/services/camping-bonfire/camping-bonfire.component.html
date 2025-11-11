@@ -1,0 +1,46 @@
+<section class="container py-5 service-page">
+    <div class="row g-4">
+        <div class="col-12">
+            <h1 class="fw-bold mb-2">Camping & Bonfire</h1>
+            <p class="lead text-muted mb-3">Experience nights under the stars with our lakeside and desert camping
+                options. We provide tents, bedding and a safe bonfire setup with local meals and music.</p>
+        </div>
+
+        <div class="col-md-6">
+            <h4 class="section-title">Campsites</h4>
+            <div class="list-group">
+                <div class="list-group-item" *ngFor="let c of camps">
+                    <h6 class="mb-1">{{ c.title }}</h6>
+                    <p class="small text-muted">{{ c.features.join(' • ') }}</p>
+                </div>
+            </div>
+
+            <h5 class="mt-4">Safety & Rules</h5>
+            <ul>
+                <li>Follow guide instructions around bonfire and fuel handling.</li>
+                <li>Pack out what you bring — leave no trace.</li>
+            </ul>
+
+            <a routerLink="/contact" class="btn btn-brand mt-3">Enquire About Camping</a>
+        </div>
+
+        <div class="col-md-6">
+            <img src="/assets/triop-lad.jpeg" alt="Camping" class="img-fluid rounded shadow-sm mb-3">
+
+            <h5 class="mt-2">Frequently Asked Questions</h5>
+            <div class="accordion" id="campFaq">
+                <div class="accordion-item mb-3" *ngFor="let f of faqs; let i = index">
+                    <h2 class="accordion-header" id="campFaqHeading{{i}}">
+                        <button class="accordion-button collapsed fw-bold text-brand" type="button"
+                            data-bs-toggle="collapse" [attr.data-bs-target]="'#campFaq' + i" aria-expanded="false"
+                            [attr.aria-controls]="'campFaq' + i">{{ f.q }}</button>
+                    </h2>
+                    <div [id]="'campFaq' + i" class="accordion-collapse collapse"
+                        [attr.aria-labelledby]="'campFaqHeading' + i" data-bs-parent="#campFaq">
+                        <div class="accordion-body">{{ f.a }}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

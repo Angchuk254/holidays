@@ -1,0 +1,40 @@
+/* You can add global styles to this file, and also import other style files */
+:root {
+  --brand-cobalt: #0047ab; /* cobalt blue */
+  --brand-light: #f8f9fa;
+  --text-light: #ffffff;
+  --text-dark: #212529;
+}
+.btn-brand {
+  background-color: var(--brand-cobalt);
+  color: white;
+  border-radius: 25px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.btn-brand:hover {
+  background-color: #003a8c;
+  color: #fff;
+}
+
+/* Shared accordion / FAQ styles (kept global so all service pages match the FAQ look) */
+.text-brand {
+  color: var(--brand-cobalt);
+}
+
+.accordion-button:focus {
+  box-shadow: none;
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: var(--brand-cobalt);
+  color: #fff;
+}
+
+.accordion-item {
+  border-radius: 10px;
+  overflow: hidden;
+  border: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}

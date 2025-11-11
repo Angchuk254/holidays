@@ -1,0 +1,42 @@
+<section class="container py-5 service-page">
+    <div class="row g-4 align-items-center">
+        <div class="col-lg-6">
+            <h1 class="fw-bold mb-3">Taxi & Transport</h1>
+            <p class="lead text-muted">Reliable transfers, local taxis and multi-day vehicle arrangements. We coordinate
+                with trusted drivers who know the terrain.</p>
+
+            <h5 class="mt-4">Vehicle options & pricing</h5>
+            <div class="list-group mb-3">
+                <div class="list-group-item" *ngFor="let v of vehicles">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h6 class="mb-1">{{ v.type }}</h6>
+                        <small class="text-muted">{{ v.perDay }} / day</small>
+                    </div>
+                    <p class="mb-1 small text-muted">{{ v.capacity }}</p>
+                </div>
+            </div>
+
+            <a routerLink="/contact" class="btn btn-brand mt-2">Request a Quote</a>
+        </div>
+        <div class="col-lg-6">
+            <img src="/assets/temp.jpeg" alt="Taxi" class="img-fluid rounded shadow-sm">
+        </div>
+    </div>
+</section>
+
+<section class="container py-5">
+    <h4 class="section-title">Frequently Asked Questions</h4>
+    <div class="accordion" id="taxiFaq">
+        <div class="accordion-item mb-3" *ngFor="let f of faqs; let i = index">
+            <h2 class="accordion-header" id="taxiFaqHeading{{i}}">
+                <button class="accordion-button collapsed fw-bold text-brand" type="button" data-bs-toggle="collapse"
+                    [attr.data-bs-target]="'#taxiFaq' + i" aria-expanded="false" [attr.aria-controls]="'taxiFaq' + i">{{
+                    f.q }}</button>
+            </h2>
+            <div [id]="'taxiFaq' + i" class="accordion-collapse collapse" [attr.aria-labelledby]="'taxiFaqHeading' + i"
+                data-bs-parent="#taxiFaq">
+                <div class="accordion-body">{{ f.a }}</div>
+            </div>
+        </div>
+    </div>
+</section>

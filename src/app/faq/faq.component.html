@@ -1,0 +1,47 @@
+<section class="faq-section py-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h1 class="fw-bold text-brand">Frequently Asked Questions</h1>
+            <p class="text-muted fs-5">Find answers to the most common travel queries before you plan your adventure.
+            </p>
+        </div>
+
+        <!-- FAQ Accordion -->
+        <div class="accordion mb-5" id="faqAccordion">
+            <div class="accordion-item mb-3" *ngFor="let item of faqs; let i = index">
+                <h2 class="accordion-header" [id]="'heading' + i">
+                    <button class="accordion-button collapsed fw-bold text-brand" type="button"
+                        data-bs-toggle="collapse" [attr.data-bs-target]="'#collapse' + i" aria-expanded="false"
+                        [attr.aria-controls]="'collapse' + i">
+                        {{ item.question }}
+                    </button>
+                </h2>
+                <div [id]="'collapse' + i" class="accordion-collapse collapse" [attr.aria-labelledby]="'heading' + i"
+                    data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        {{ item.answer }}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recommended Packages -->
+        <div class="text-center mb-4">
+            <h2 class="fw-bold text-brand">Recommended Packages</h2>
+            <p class="text-muted">Explore our most popular adventures loved by travelers.</p>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-sm-6 col-md-4" *ngFor="let pkg of recommendedPackages">
+                <div class="card shadow border-0 h-100 package-card">
+                    <img [src]="pkg.image" [alt]="pkg.title" class="card-img-top package-img">
+                    <div class="card-body text-center">
+                        <h5 class="fw-bold">{{ pkg.title }}</h5>
+                        <p class="text-muted small mb-3">{{ pkg.shortDescription }}</p>
+                        <a [routerLink]="['/packages', pkg.slug]" class="btn btn-brand">View Details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

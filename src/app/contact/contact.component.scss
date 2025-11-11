@@ -1,0 +1,28 @@
+:root {
+  --brand-cobalt: #0047ab;
+}
+
+.text-brand {
+  color: var(--brand-cobalt);
+}
+
+.btn-brand {
+  background-color: var(--brand-cobalt);
+  color: #fff;
+  border-radius: 25px;
+  padding: 0.75rem 2rem;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.btn-brand:hover {
+  background-color: #00378a;
+  transform: translateY(-2px);
+}
+
+.contact-us p {
+  line-height: 1.7;
+}
+
+.card {
+  border-radius: 15px;
+}

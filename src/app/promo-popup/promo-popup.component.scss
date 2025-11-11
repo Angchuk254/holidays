@@ -1,0 +1,30 @@
+.promo-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1050;
+}
+
+.promo-modal {
+  background: var(--brand-cobalt);
+  color: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+.promo-modal h5 {
+  margin-bottom: 1rem;
+}
+
+.promo-modal p {
+  margin-bottom: 1.5rem;
+}

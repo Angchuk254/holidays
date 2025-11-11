@@ -1,0 +1,8 @@
+<div *ngIf="showPromo" class="promo-backdrop">
+    <div class="promo-modal">
+        <h5>🎉 Book early & get 10% off your Ladakh Adventure!</h5>
+        <p>Limited seats — plan your dream trip today.</p>
+        <button class="btn btn-warning me-2" routerLink="/contact">Book Now</button>
+        <button class="btn btn-outline-light" (click)="closePromo()">Close</button>
+    </div>
+</div>

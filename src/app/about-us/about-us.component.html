@@ -1,0 +1,65 @@
+<section class="about-us py-5">
+    <div class="container">
+        <!-- Hero Section -->
+        <div class="text-center mb-5">
+            <h1 class="fw-bold">About Golo Holidays</h1>
+            <p class="text-muted fs-5">Discover the spirit of adventure with curated travel experiences in Ladakh,
+                Spiti, Kashmir and beyond.</p>
+            <a href="/packages" class="btn btn-brand btn-lg mt-3">Explore Packages</a>
+        </div>
+
+        <!-- Our Story -->
+        <div class="row align-items-center mb-5">
+            <div class="col-md-6 d-flex justify-content-end">
+                <img src="assets/stiry.jpeg" class="img-fluid rounded shadow serty" alt="Our Story">
+            </div>
+            <div class="col-md-6">
+                <h2 class="fw-bold mb-3">Our Story</h2>
+                <p class="text-muted fs-6">Golo Holidays started with a mission to make adventure accessible and
+                    unforgettable. We focus on immersive local experiences, breathtaking landscapes, and responsible
+                    tourism.</p>
+            </div>
+        </div>
+
+        <!-- Our Mission & Vision -->
+        <div class="row text-center mb-5">
+            <div class="col-md-6 mb-4">
+                <div class="p-4 shadow rounded">
+                    <h3 class="fw-bold text-brand mb-3">Our Mission</h3>
+                    <p class="text-muted">To provide authentic travel experiences that connect travelers with the
+                        culture, beauty, and adventure of the Himalayas.</p>
+                </div>
+            </div>
+            <div class="col-md-6 mb-4">
+                <div class="p-4 shadow rounded">
+                    <h3 class="fw-bold text-brand mb-3">Our Vision</h3>
+                    <p class="text-muted">To be the most trusted travel partner for adventure enthusiasts while
+                        promoting sustainable tourism in every region we operate.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Team Section -->
+        <div class="text-center mb-5">
+            <h2 class="fw-bold mb-4">Meet Our Team</h2>
+            <div class="row g-4 justify-content-center">
+                <div class="col-sm-6 col-md-3" *ngFor="let member of team">
+                    <div class="card border-0 shadow text-center">
+                        <img [src]="member.photo" class="card-img-top rounded-circle mx-auto mt-3"
+                            alt="{{ member.name }}" style="width:120px; height:120px; object-fit:cover;">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ member.name }}</h5>
+                            <p class="text-muted">{{ member.role }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA Section -->
+        <div class="text-center">
+            <h3 class="fw-bold mb-3">Ready for your next adventure?</h3>
+            <a href="/packages" class="btn btn-brand btn-lg">Book Your Trip</a>
+        </div>
+    </div>
+</section>

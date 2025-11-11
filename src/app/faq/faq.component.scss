@@ -1,0 +1,52 @@
+:root {
+  --brand-cobalt: #0047ab;
+}
+
+.text-brand {
+  color: var(--brand-cobalt);
+}
+
+.accordion-button:focus {
+  box-shadow: none;
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: var(--brand-cobalt);
+  color: #fff;
+}
+
+.accordion-item {
+  border-radius: 10px;
+  overflow: hidden;
+  border: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+.package-card {
+  border-radius: 15px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.package-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.package-img {
+  height: 220px;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 15px 15px 0 0;
+}
+
+.btn-brand {
+  background-color: var(--brand-cobalt);
+  color: #fff;
+  border-radius: 25px;
+  padding: 0.5rem 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.btn-brand:hover {
+  background-color: #00378a;
+  transform: translateY(-2px);
+}

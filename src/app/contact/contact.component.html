@@ -1,0 +1,93 @@
+<section class="contact-us py-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h1 class="fw-bold">Contact Us</h1>
+            <p class="text-muted fs-5">We would love to hear from you! Reach out for queries, bookings, or suggestions.
+            </p>
+        </div>
+
+        <div class="row g-5">
+            <!-- Contact Form -->
+            <div class="col-md-6">
+                <div class="card shadow border-0 p-4">
+                    <form [formGroup]="contactForm" (ngSubmit)="submitForm()">
+                        <div class="mb-3">
+                            <label for="name" class="form-label fw-bold">Name</label>
+                            <input type="text" class="form-control" id="name" formControlName="name">
+                            <div *ngIf="contactForm.get('name')?.touched && contactForm.get('name')?.invalid"
+                                class="text-danger small mt-1">
+                                <div *ngIf="contactForm.get('name')?.errors?.['required']">Name is required.</div>
+                                <div *ngIf="contactForm.get('name')?.errors?.['minlength']">Name must be at least 2
+                                    characters.</div>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="email" class="form-label fw-bold">Email</label>
+                            <input type="email" class="form-control" id="email" formControlName="email">
+                            <div *ngIf="contactForm.get('email')?.touched && contactForm.get('email')?.invalid"
+                                class="text-danger small mt-1">
+                                <div *ngIf="contactForm.get('email')?.errors?.['required']">Email is required.</div>
+                                <div *ngIf="contactForm.get('email')?.errors?.['email']">Enter a valid email address.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="phone" class="form-label fw-bold">Phone (optional)</label>
+                            <input type="text" class="form-control" id="phone" formControlName="phone">
+                            <div *ngIf="contactForm.get('phone')?.touched && contactForm.get('phone')?.invalid"
+                                class="text-danger small mt-1">
+                                <div *ngIf="contactForm.get('phone')?.errors?.['pattern']">Enter a valid phone number.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="message" class="form-label fw-bold">Message</label>
+                            <textarea class="form-control" id="message" rows="5" formControlName="message"></textarea>
+                            <div *ngIf="contactForm.get('message')?.touched && contactForm.get('message')?.invalid"
+                                class="text-danger small mt-1">
+                                <div *ngIf="contactForm.get('message')?.errors?.['required']">Message is required.</div>
+                                <div *ngIf="contactForm.get('message')?.errors?.['minlength']">Message must be at least
+                                    10 characters.</div>
+                            </div>
+                        </div>
+
+                        <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
+                        <div *ngIf="submitted" class="alert alert-success">Thanks! Your message was submitted. Our team
+                            will reach you soon 😊</div>
+
+                        <button type="submit" class="btn btn-brand w-100 mt-3" [disabled]="submitting">
+                            {{ submitting ? 'Sending...' : 'Send Message' }}
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Contact Info -->
+            <div class="col-md-6 d-flex flex-column justify-content-center">
+                <div class="mb-4">
+                    <h5 class="fw-bold text-brand">Address</h5>
+                    <p class="text-muted">123 Adventure Lane, Leh, Ladakh, India</p>
+                </div>
+                <div class="mb-4">
+                    <h5 class="fw-bold text-brand">Phone</h5>
+                    <p class="text-muted">+91 98765 43210</p>
+                </div>
+                <div class="mb-4">
+                    <h5 class="fw-bold text-brand">Email</h5>
+                    <p class="text-muted">infogoloholidays.com</p>
+                </div>
+                <div>
+                    <h5 class="fw-bold text-brand">Follow Us</h5>
+                    <div class="d-flex gap-3">
+                        <a href="#" class="text-brand fs-4"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="text-brand fs-4"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="text-brand fs-4"><i class="bi bi-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

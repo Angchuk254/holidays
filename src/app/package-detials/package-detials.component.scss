@@ -1,0 +1,79 @@
+.card-img-top {
+  height: 180px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.card:hover .card-img-top {
+  transform: scale(1.05);
+}
+
+.btn-brand {
+  background-color: var(--brand-cobalt);
+  color: #fff;
+  border-radius: 25px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-brand:hover {
+  background-color: #00378a;
+  transform: translateY(-2px);
+}
+
+/* Package details specific styles */
+.section-title {
+  color: var(--brand-cobalt);
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.badge.bg-outline-brand {
+  border: 1px solid var(--brand-cobalt);
+  color: var(--brand-cobalt);
+  background: transparent;
+}
+
+.accordion-button {
+  background: #fff;
+  color: #222;
+}
+
+.accordion-button:not(.collapsed) {
+  background: rgba(0, 71, 171, 0.06);
+}
+
+.text-brand {
+  color: var(--brand-cobalt);
+}
+
+.accordion-button:focus {
+  box-shadow: none;
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: var(--brand-cobalt);
+  color: #fff;
+}
+
+.accordion-item {
+  border-radius: 10px;
+  overflow: hidden;
+  border: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.list-group-item {
+  border: 0;
+  padding-left: 0;
+}
+
+.card.sticky-top {
+  top: 100px;
+}
+
+/* responsive tweaks */
+@media (max-width: 991px) {
+  .card.sticky-top {
+    position: static;
+  }
+}

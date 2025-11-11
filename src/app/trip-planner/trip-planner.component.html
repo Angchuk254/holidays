@@ -1,0 +1,68 @@
+<div class="container py-5">
+    <h2 class="fw-bold text-center mb-4 text-white">Trip Planner</h2>
+    <p class="text-center text-light opacity-75 mb-5">
+        This is just a suggestion. Please contact our tour planner to finalize your trip.
+    </p>
+
+    <!-- Form -->
+    <div class="card p-4 mb-5 bg-brand shadow-sm">
+        <div class="row g-3">
+            <div class="col-md-3">
+                <label class="form-label text-light">Duration</label>
+                <select class="form-select" [(ngModel)]="selectedDuration">
+                    <option value="">Select</option>
+                    <option *ngFor="let d of durationOptions" [value]="d">{{ d }}</option>
+                </select>
+            </div>
+
+            <div class="col-md-3">
+                <label class="form-label text-light">Budget</label>
+                <select class="form-select" [(ngModel)]="selectedBudget">
+                    <option value="">Select</option>
+                    <option *ngFor="let b of budgetOptions" [value]="b">{{ b }}</option>
+                </select>
+            </div>
+
+            <div class="col-md-3">
+                <label class="form-label text-light">Group Type</label>
+                <select class="form-select" [(ngModel)]="selectedGroup">
+                    <option value="">Select</option>
+                    <option *ngFor="let g of groupOptions" [value]="g">{{ g }}</option>
+                </select>
+            </div>
+
+            <div class="col-md-3">
+                <label class="form-label text-light">Activities</label>
+                <select multiple class="form-select" [(ngModel)]="selectedActivities">
+                    <option *ngFor="let a of activitiesOptions" [value]="a">{{ a }}</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="text-center mt-4">
+            <button class="btn btn-warning btn-lg" (click)="onSubmit()">Show Suggested Packages</button>
+        </div>
+    </div>
+
+    <!-- Suggested Packages -->
+    <div *ngIf="suggestedPackages.length > 0">
+        <h4 class="text-light mb-4">Suggested Packages</h4>
+        <div class="row g-4">
+            <div class="col-md-4" *ngFor="let pkg of suggestedPackages">
+                <div class="card h-100 shadow-sm">
+                    <img [src]="pkg.image" class="card-img-top" [alt]="pkg.name">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ pkg.name }}</h5>
+                        <p class="card-text">{{ pkg.shortDescription }}</p>
+                        <p class="fw-bold">₹{{ pkg.price }}</p>
+                        <a [routerLink]="['/packages', pkg.slug]" class="btn btn-brand w-100">View Details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="suggestedPackages.length === 0" class="text-center text-light opacity-75 mt-4">
+        No packages match your selection. Please contact our tour planner for assistance.
+    </div>
+</div>

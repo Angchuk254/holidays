@@ -1,0 +1,63 @@
+/* Sidebar Recommended Blogs */
+.list-group-item img {
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.list-group-item:hover img {
+  transform: scale(1.1);
+}
+
+/* Recommended Tours Cards */
+.recommended-tours .card img {
+  height: 180px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.recommended-tours .card:hover img {
+  transform: scale(1.05);
+}
+
+.btn-brand {
+  background-color: var(--brand-cobalt);
+  color: #fff;
+  border-radius: 25px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-brand:hover {
+  background-color: #00378a;
+  transform: translateY(-2px);
+}
+
+/* Blog details specific styles */
+.section-title {
+  color: var(--brand-cobalt);
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.badge.bg-outline-brand {
+  border: 1px solid var(--brand-cobalt);
+  color: var(--brand-cobalt);
+  background: transparent;
+}
+
+.list-group-item {
+  border: none;
+  padding-left: 0;
+}
+
+.blog-content p {
+  line-height: 1.8;
+  color: #444;
+}
+
+.btn-outline-secondary {
+  border-radius: 20px;
+}
+
+.text-success {
+  color: #198754 !important;
+}

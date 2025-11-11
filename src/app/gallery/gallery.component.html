@@ -1,0 +1,20 @@
+<section class="gallery py-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h1 class="fw-bold text-brand">Travel Gallery</h1>
+            <p class="text-muted fs-5">Experience the beauty of Ladakh, Spiti & Kashmir through our travel moments.</p>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-sm-6 col-md-4" *ngFor="let dest of destinations">
+                <div class="card border-0 shadow-sm gallery-card">
+                    <img [src]="dest.image" [alt]="dest.name" class="card-img-top rounded gallery-img">
+                    <div class="card-body text-center">
+                        <h5 class="fw-bold">{{ dest.name }}</h5>
+                        <p class="text-muted small mb-0">{{ dest.location }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

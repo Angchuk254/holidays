@@ -1,0 +1,31 @@
+.service-page h1 {
+  color: var(--brand-cobalt);
+}
+.service-page img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+@media (max-width: 767.98px) {
+  .service-page {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+.section-title {
+  color: var(--brand-cobalt);
+  margin-bottom: 0.75rem;
+}
+.card .card-title {
+  color: var(--brand-cobalt);
+}
+.service-page .btn-outline-brand {
+  border-color: var(--brand-cobalt);
+  color: var(--brand-cobalt);
+}
+
+@media (max-width: 576px) {
+  .service-page .card-img-top {
+    height: 140px !important;
+  }
+}
