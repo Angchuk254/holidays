@@ -11,6 +11,10 @@ export interface Blog {
 
     // Enhanced fields for blog details
     author?: string;
+    /** URL to the author's avatar image in /assets */
+    authorImage?: string;
+    /** Short author biography for the blog details page */
+    authorBio?: string;
     readTime?: string;
     highlights?: string[];
     summary?: string;

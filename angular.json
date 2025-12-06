@@ -29,8 +29,11 @@
               "src/assets",
               {
                 "glob": "**/*",
-                "input": "public"
-              }
+                "input": "public",
+                "output": "/assets/"
+              },
+              "src/assets/image-19.png",
+              "src/robots.txt"
             ],
             "styles": [
               "src/styles.scss",
@@ -47,7 +50,7 @@
                 {
                   "type": "initial",
                   "maximumWarning": "500kB",
-                  "maximumError": "1MB"
+                  "maximumError": "2MB"
                 },
                 {
                   "type": "anyComponentStyle",

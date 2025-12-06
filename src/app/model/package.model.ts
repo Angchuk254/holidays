@@ -9,6 +9,9 @@ export interface Package {
     price: number;
     duration?: string;
     tags?: string[];
+    bike: string,
+    // Optional high-level tour categories for filtering or display
+    tourTypes?: string[];
 
     // New structured details for package detail page
     highlights?: string[]; // short bullet highlights

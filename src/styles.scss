@@ -38,3 +38,11 @@
   border: none;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
+
+
+
+.modern-table td ,th{
+  border: 1px solid #000;
+  width: max-content;
+  padding: 5px;
+}

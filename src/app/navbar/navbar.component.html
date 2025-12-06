@@ -39,10 +39,7 @@
 
 <!-- Offcanvas (mobile) -->
 <div class="offcanvas offcanvas-start" tabindex="-1" id="mobileMenu" aria-labelledby="mobileMenuLabel">
-    <div class="offcanvas-header bg-brand text-white">
-        <h5 class="offcanvas-title fw-bold" id="mobileMenuLabel">Golo Holidays</h5>
-        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
-    </div>
+
     <div class="offcanvas-body">
         <ul class="navbar-nav">
             <li class="nav-item"><a class="nav-link" routerLink="/" data-bs-dismiss="offcanvas">Home</a></li>
@@ -60,5 +57,24 @@
                     data-bs-dismiss="offcanvas">Contact</a>
             </li>
         </ul>
+    </div>
+
+    <div class="offcanvas-header bg-brand text-white py-3 px-3">
+        <div class="w-100 d-flex align-items-center justify-content-between">
+            <div class="d-flex align-items-center gap-2">
+                <img src="/assets/triop-lad.jpeg" alt="logo" class="mobile-logo rounded-circle">
+                <div class="mobile-title-wrap d-flex flex-column">
+                    <h5 class="offcanvas-title fw-bold mb-0" id="mobileMenuLabel">Golo Holidays</h5>
+                    <small class="text-white-70 small">Leh · Nubra · Pangong</small>
+                </div>
+            </div>
+            <div class="d-flex align-items-center gap-2">
+                <a href="tel:+911234567890" class="text-white small d-flex align-items-center mobile-call">
+                    <i class="bi bi-telephone-fill me-1"></i>Call
+                </a>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+                    aria-label="Close menu"></button>
+            </div>
+        </div>
     </div>
 </div>

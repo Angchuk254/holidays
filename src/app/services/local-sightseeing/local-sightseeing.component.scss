@@ -24,8 +24,45 @@
   color: var(--brand-cobalt);
 }
 
-@media (max-width: 576px) {
-  .service-page .card-img-top {
-    height: 140px !important;
-  }
+/* Local sightseeing specific (desktop & tablet) */
+.service-page .card-img-top {
+  height: 220px;
+}
+
+.hero-side {
+  max-width: 320px;
+  border-radius: 8px;
+}
+
+.destination-card {
+  transition: transform 0.28s ease, box-shadow 0.28s ease;
+  overflow: hidden;
+  border-radius: 12px;
+  border: none;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+}
+.destination-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 30px rgba(0,0,0,0.12);
+}
+.card-img-top-wrapper{ position:relative; cursor:pointer; }
+.card-img-top-wrapper img{ height:220px; object-fit:cover; width:100%; display:block; border-top-left-radius:12px; border-top-right-radius:12px; }
+.category-badge{ position:absolute; left:12px; top:12px; background: var(--brand-cobalt); color:#fff; font-weight:700; padding:6px 10px; border-radius:8px; box-shadow:0 8px 22px rgba(0,0,0,0.14); border: 1px solid rgba(255,255,255,0.08); font-size:0.85rem; min-width: fit-content; display:inline-block; }
+
+.gallery-thumb{ height:120px; object-fit:cover; cursor:pointer; transition:transform .2s ease }
+.gallery-thumb:hover{ transform:scale(1.03) }
+
+.btn-brand.btn-sm { padding: 0.35rem 0.8rem; font-size: 0.85rem; border-radius: 20px; }
+
+.lightbox{ position:fixed; inset:0; display:flex; align-items:center; justify-content:center; background:rgba(0,0,0,0.7); z-index:2000 }
+.lightbox-image{ max-width:92%; max-height:86%; border-radius:6px; box-shadow:0 12px 30px rgba(0,0,0,0.5);} 
+
+.map-embed iframe{ border:0; border-radius:8px }
+
+/* small-screen overrides */
+@media (max-width: 767.98px) {
+  .service-page .card-img-top { height: 160px !important; }
+  .gallery-thumb{ height:90px }
 }

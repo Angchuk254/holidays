@@ -11,6 +11,16 @@
             <div class="col-md-6">
                 <div class="card shadow border-0 p-4">
                     <form [formGroup]="contactForm" (ngSubmit)="submitForm()">
+                        <div *ngIf="prefillLabel"
+                            class="alert alert-info d-flex justify-content-between align-items-center">
+                            <div>
+                                <strong>Prefill:</strong> <span class="ms-2">{{ prefillLabel }}</span>
+                            </div>
+                            <div>
+                                <button type="button" class="btn btn-sm btn-outline-secondary"
+                                    (click)="clearPrefill()">Clear</button>
+                            </div>
+                        </div>
                         <div class="mb-3">
                             <label for="name" class="form-label fw-bold">Name</label>
                             <input type="text" class="form-control" id="name" formControlName="name">
@@ -73,18 +83,20 @@
                 </div>
                 <div class="mb-4">
                     <h5 class="fw-bold text-brand">Phone</h5>
-                    <p class="text-muted">+91 98765 43210</p>
+                    <p class="text-muted">+91 7052415184</p>
                 </div>
                 <div class="mb-4">
                     <h5 class="fw-bold text-brand">Email</h5>
-                    <p class="text-muted">infogoloholidays.com</p>
+                    <p class="text-muted">info&#64;goloholidays.com</p>
                 </div>
                 <div>
                     <h5 class="fw-bold text-brand">Follow Us</h5>
                     <div class="d-flex gap-3">
-                        <a href="#" class="text-brand fs-4"><i class="bi bi-facebook"></i></a>
-                        <a href="#" class="text-brand fs-4"><i class="bi bi-instagram"></i></a>
-                        <a href="#" class="text-brand fs-4"><i class="bi bi-twitter"></i></a>
+                        <a href="https://www.facebook.com/share/17sBkbNrhm/?mibextid=wwXIfr" class="text-brand fs-4"><i
+                                class="bi bi-facebook"></i></a>
+                        <a href="https://www.instagram.com/lifewithgolo?igsh=YXMzYWE0MzVpeDJn&utm_source=qr"
+                            class="text-brand fs-4"><i class="bi bi-instagram"></i></a>
+                        <!-- <a href="#" class="text-brand fs-4"><i class="bi bi-twitter"></i></a> -->
                     </div>
                 </div>
             </div>

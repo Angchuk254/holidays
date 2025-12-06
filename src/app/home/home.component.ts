@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, AfterViewInit } from '@angular/core';
+import { Title, Meta } from '@angular/platform-browser';
 import { RouterLink } from '@angular/router';
 import { PromoPopupComponent } from "../promo-popup/promo-popup.component";
 
@@ -10,11 +11,13 @@ import { PromoPopupComponent } from "../promo-popup/promo-popup.component";
   styleUrl: './home.component.scss'
 })
 export class HomeComponent implements AfterViewInit {
+  constructor(private title: Title, private meta: Meta) { }
+
   carouselImages: string[] = [];
 
   evenDayImages = [
     'assets/ladakh-carousel.jpeg',
-    'assetsladakh-pangong.jpeg',
+    'assets/ladakh-pangong.jpeg',
     'assets/ladakh-bike.jpeg'
   ];
 
@@ -25,6 +28,16 @@ export class HomeComponent implements AfterViewInit {
   ];
 
   ngOnInit(): void {
+    // use the first blog as a lightweight default for home meta tags if available
+    const first = this.blogs && this.blogs.length ? this.blogs[0] : null;
+    if (first) {
+      this.title.setTitle(`${first.title} — Golo Holidays`);
+      this.meta.updateTag({ name: 'description', content: first.excerpt || '' });
+      this.meta.updateTag({ property: 'og:title', content: first.title });
+      this.meta.updateTag({ property: 'og:description', content: first.excerpt || '' });
+      this.meta.updateTag({ property: 'og:image', content: first.image || 'https://example.com/assets/og-default.jpg' });
+      this.meta.updateTag({ name: 'twitter:card', content: 'summary_large_image' });
+    }
     const today = new Date().getDate(); // get day number (1–31)
     this.carouselImages = today % 2 === 0 ? this.evenDayImages : this.oddDayImages;
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -50,8 +63,8 @@ export class HomeComponent implements AfterViewInit {
 
   popularPackages = [
     { title: 'Ladakh Adventure Trip', slug: 'ladakh-adventure-trip', shortDescription: '7-day adventure trip to Ladakh with camping.', image: 'assets/ladakh-bike.jpeg' },
-    { title: 'Spiti Valley Expedition', slug: 'spiti-valley-expedition', shortDescription: 'Explore the serene valley of Spiti.', image: 'assets/tour-ladakh-spiti.jpeg' },
-    { title: 'Kashmir Paradise Tour', slug: 'kashmir-paradise-tour', shortDescription: 'Discover Srinagar, Gulmarg, and Pahalgam.', image: 'assets/kashmir-valley.jpeg' }
+    { title: 'Spiti Valley Expedition', slug: 'spiti-valley-exploration', shortDescription: 'Explore the serene valley of Spiti.', image: 'assets/tour-ladakh-spiti.jpeg' },
+    { title: 'Kashmir Paradise Tour', slug: 'kashmir-scenic-trip', shortDescription: 'Discover Srinagar, Gulmarg, and Pahalgam.', image: 'assets/kashmir-valley.jpeg' }
   ];
 
   testimonials = [

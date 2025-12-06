@@ -27,7 +27,8 @@
                     <h5 class="card-title fw-bold">Ladakh Trip</h5>
                     <p class="card-text text-muted">Explore the stunning landscapes, monasteries, and culture of Ladakh
                         with our expert guides.</p>
-                    <a routerLink="/packages" class="btn btn-brand mt-auto">View Packages</a>
+                    <a [routerLink]="['/packages']" [queryParams]="{ region: 'Ladakh' }"
+                        class="btn btn-brand mt-auto">View Packages</a>
                 </div>
             </div>
         </div>
@@ -40,7 +41,8 @@
                     <h5 class="card-title fw-bold">Spiti Trip</h5>
                     <p class="card-text text-muted">Discover the remote beauty and adventure of Spiti Valley, perfect
                         for thrill seekers and nature lovers.</p>
-                    <a routerLink="/packages" class="btn btn-brand mt-auto">View Packages</a>
+                    <a [routerLink]="['/packages']" [queryParams]="{ region: 'Spiti' }"
+                        class="btn btn-brand mt-auto">View Packages</a>
                 </div>
             </div>
         </div>
@@ -53,7 +55,8 @@
                     <h5 class="card-title fw-bold">Kashmir Trip</h5>
                     <p class="card-text text-muted">Experience the beauty of Kashmir with its lakes, gardens, and
                         snow-capped mountains.</p>
-                    <a routerLink="/packages" class="btn btn-brand mt-auto">View Packages</a>
+                    <a [routerLink]="['/packages']" [queryParams]="{ region: 'Kashmir' }"
+                        class="btn btn-brand mt-auto">View Packages</a>
                 </div>
             </div>
         </div>

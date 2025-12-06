@@ -1,68 +1,105 @@
 <section class="container py-5 service-page">
-    <div class="row g-4">
-        <div class="col-12">
-            <h1 class="fw-bold mb-2">Local Sightseeing</h1>
-            <p class="lead text-muted mb-4">Guided visits to monasteries, markets and scenic viewpoints in and around
-                Leh, Nubra and Pangong. Choose half-day, full-day or multi-day sightseeing packages with local guides
-                and permits handled.</p>
+    <!-- Hero -->
+    <div class="row mb-4 align-items-center">
+        <div class="col-md-7">
+            <h1 class="fw-bold mb-2">Local Sightseeing — Leh, Nubra & Pangong</h1>
+            <p class="lead text-muted mb-3">Curated half-day, full-day and multi-day sightseeing trips led by
+                knowledgeable local guides. Choose cultural visits, photography-focused stops, or family-friendly
+                itineraries.</p>
+            <div class="d-flex gap-2 mb-3">
+                <a [routerLink]="['/contact']" class="btn btn-brand">Get a custom itinerary</a>
+                <a class="btn btn-outline-brand" href="#sights">Explore Places</a>
+            </div>
+            <div class="d-inline-flex gap-2 align-items-center small text-muted">
+                <i class="bi bi-geo-alt-fill text-brand"></i> Locations: Leh · Nubra · Pangong &nbsp; • &nbsp; <i
+                    class="bi bi-clock text-brand"></i> Visit length: 1 hour — multi-day
+            </div>
         </div>
+        <div class="col-md-5 text-end d-none d-md-block">
+            <img src="/assets/ladakh-bike-pangong.jpeg" alt="Local Sightseeing"
+                class="img-fluid rounded shadow-sm hero-side">
+        </div>
+    </div>
 
-        <!-- Sights grid -->
-        <div class="col-12">
-            <h4 class="section-title">Must-see Places</h4>
-            <div class="row g-3">
-                <div class="col-md-6 col-lg-4" *ngFor="let s of sights">
-                    <div class="card h-100 shadow-sm">
-                        <img [src]="s.image" class="card-img-top" [alt]="s.title"
-                            style="height:180px; object-fit:cover;">
-                        <div class="card-body d-flex flex-column">
-                            <h5 class="card-title">{{ s.title }}</h5>
-                            <p class="text-muted small">{{ s.short }}</p>
-                            <div class="accordion" [attr.id]="'sightDetailAccordion-' + s.id">
-                                <div class="accordion-item mb-3">
-                                    <h2 class="accordion-header" [id]="'detailHeading-' + s.id">
-                                        <button class="accordion-button collapsed fw-bold text-brand" type="button"
-                                            data-bs-toggle="collapse" [attr.data-bs-target]="'#detail-' + s.id"
-                                            aria-expanded="false" [attr.aria-controls]="'detail-' + s.id">Read
-                                            more</button>
-                                    </h2>
-                                    <div [id]="'detail-' + s.id" class="accordion-collapse collapse"
-                                        [attr.aria-labelledby]="'detailHeading-' + s.id"
-                                        [attr.data-bs-parent]="'#sightDetailAccordion-' + s.id">
-                                        <div class="accordion-body">
-                                            <p class="small text-muted">{{ s.details }}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+    <!-- Filters -->
+    <div class="row mb-4" id="sights">
+        <div class="col-md-3">
+            <label class="form-label small mb-1">Category</label>
+            <select class="form-select" [(ngModel)]="selectedCategory">
+                <option *ngFor="let c of categories" [value]="c">{{ c }}</option>
+            </select>
+        </div>
+        <div class="col-md-6">
+            <label class="form-label small mb-1">Search sights</label>
+            <input class="form-control" placeholder="Search by name, tag or feature" [(ngModel)]="searchTerm">
+        </div>
+        <div class="col-md-3 d-flex align-items-end justify-content-end">
+            <button class="btn btn-outline-brand" (click)="resetFilters()">Reset</button>
+        </div>
+    </div>
+
+    <!-- Sight cards -->
+    <div class="row g-4">
+        <div class="col-lg-4 col-md-6" *ngFor="let s of filteredSights">
+            <div class="card destination-card h-100 shadow-sm">
+                <div class="card-img-top-wrapper" (click)="openImage(s.image)">
+                    <img [src]="s.image" class="card-img-top" [alt]="s.title">
+                    <div class="category-badge">{{ s.category }}</div>
+                </div>
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title mb-1">{{ s.title }}</h5>
+                    <p class="small text-muted mb-2">{{ s.short }}</p>
+
+                    <div class="d-flex gap-2 flex-wrap mb-3">
+                        <span class="badge bg-outline-brand small">{{ s.bestTime }}</span>
+                        <span class="badge bg-light small text-dark">{{ s.difficulty }}</span>
+                        <span class="badge bg-light small text-dark">{{ s.duration }}</span>
+                    </div>
+
+                    <div class="mt-auto d-flex gap-2">
+                        <button class="btn btn-sm btn-brand w-50" (click)="openMaps(s)"><i
+                                class="bi bi-map me-1"></i>Map</button>
+                        <button class="btn btn-sm btn-brand w-50" data-bs-toggle="collapse"
+                            [attr.data-bs-target]="'#detail-' + s.id" aria-expanded="false">Details</button>
+                    </div>
+
+                    <div class="collapse mt-3" [id]="'detail-' + s.id">
+                        <div class="small text-muted">{{ s.details }}</div>
+                        <div class="mt-2 d-flex gap-2">
+                            <a [routerLink]="['/packages']"
+                                [queryParams]="{ region: s.tags && s.tags[0] ? s.tags[0] : s.category }"
+                                class="btn btn-sm btn-brand mt-2">See packages for {{ s.category }}</a>
+                            <a [routerLink]="['/contact']"
+                                [queryParams]="{ subject: 'Sight: ' + s.title, sight: s.title }"
+                                class="btn btn-sm btn-outline-brand mt-2">Book</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 
-        <!-- Map & gallery -->
-        <div class="col-lg-6">
-            <h4 class="section-title">Map & Route</h4>
-            <div class="ratio ratio-16x9 mb-3">
-                <!-- Replace with a proper Google Maps embed or Leaflet map later -->
-                <iframe
+    <div class="row g-4 mt-4">
+        <div class="col-lg-7">
+            <!-- Map & gallery -->
+            <h4 class="section-title">Interactive Map & Route</h4>
+            <div class="ratio ratio-16x9 mb-3 rounded overflow-hidden map-embed">
+                <iframe title="Ladakh overview map"
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d54386.35298542959!2d77.53494713546354!3d34.18956361403238!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38fd86bce37d7139%3A0xc6c2990fdad28ac7!2sLadakh!5e1!3m2!1sen!2sin!4v1761390220820!5m2!1sen!2sin"
-                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    width="600" height="450" allowfullscreen="" loading="lazy"></iframe>
             </div>
-            <h5 class="mt-3">Photo Preview</h5>
-            <div class="row g-2">
-                <div class="col-6" *ngFor="let g of gallery">
-                    <img [src]="g" class="img-fluid rounded" [alt]="'photo ' + g">
+
+            <h5 class="section-title">Photo Gallery</h5>
+            <div class="row g-2 gallery-grid">
+                <div class="col-6 col-md-4" *ngFor="let g of gallery">
+                    <img (click)="openImage(g)" [src]="g" class="img-fluid rounded gallery-thumb" [alt]="'photo' + g">
                 </div>
             </div>
         </div>
 
-        <!-- FAQs and related packages -->
-        <div class="col-lg-6">
+        <div class="col-lg-5">
             <h4 class="section-title">Frequently Asked Questions</h4>
-            <div class="accordion" id="sightFaq">
+            <div class="accordion mb-4" id="sightFaq">
                 <div class="accordion-item mb-3" *ngFor="let f of faqs; let i = index">
                     <h2 class="accordion-header" id="faqHeading{{i}}">
                         <button class="accordion-button collapsed fw-bold text-brand" type="button"
@@ -76,20 +113,33 @@
                 </div>
             </div>
 
-            <h5 class="mt-4">Related Packages</h5>
+            <h5 class="section-title">Related Tours</h5>
             <div class="row g-3">
-                <div class="col-md-6" *ngFor="let p of relatedPackages">
-                    <div class="card h-100 shadow-sm">
-                        <img [src]="p.image" class="card-img-top" [alt]="p.title"
-                            style="height:140px; object-fit:cover;">
-                        <div class="card-body">
-                            <h6 class="fw-bold">{{ p.title }}</h6>
-                            <p class="small text-muted">{{ p.short }}</p>
-                            <a [routerLink]="['/packages', p.slug]" class="btn btn-brand btn-sm">View Package</a>
+                <div class="col-12" *ngFor="let p of relatedPackages">
+                    <div class="card border-0 shadow-sm mb-2">
+                        <div class="row g-0 align-items-center">
+                            <div class="col-4">
+                                <img [src]="p.images && p.images.length ? p.images[0] : '/assets/ladakh.jpeg'"
+                                    alt="{{ p.title }}" class="img-fluid rounded-start">
+                            </div>
+                            <div class="col-8">
+                                <div class="card-body py-2">
+                                    <h6 class="mb-1 fw-bold">{{ p.title }}</h6>
+                                    <div class="small text-muted mb-2">{{ p.shortDescription }}</div>
+                                    <a [routerLink]="['/packages', p.slug]" class="btn btn-sm btn-brand">View
+                                        Package</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <!-- Gallery modal / viewer -->
+    <div class="lightbox" *ngIf="selectedImage" (click)="closeImage()">
+        <img [src]="selectedImage" class="lightbox-image" [alt]="selectedImage">
+    </div>
+
 </section>

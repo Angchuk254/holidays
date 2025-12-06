@@ -61,12 +61,128 @@
                     </div>
                 </div>
             </div>
-
+            <div *ngIf="package.bike" class="mb-4">
+                <div class="table-container">
+                    <table class="modern-table">
+                        <thead>
+                            <tr>
+                                <th>S.NO</th>
+                                <th>Bike</th>
+                                <th>Price / Pax</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>01</td>
+                                <td>Own Bike</td>
+                                <td>10,500/-</td>
+                            </tr>
+                            <tr>
+                                <td>02</td>
+                                <td>Standard 500 CC Dual</td>
+                                <td>13,500/-</td>
+                            </tr>
+                            <tr>
+                                <td>03</td>
+                                <td>Himalayan 411 CC Dual</td>
+                                <td>15,500/-</td>
+                            </tr>
+                            <tr>
+                                <td>04</td>
+                                <td>Standard 500 CC Solo</td>
+                                <td>17,500/-</td>
+                            </tr>
+                            <tr>
+                                <td>05</td>
+                                <td>Himalayan 411 CC Solo</td>
+                                <td>19,500/-</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
             <!-- Notes -->
             <div *ngIf="package.notes" class="mb-4">
                 <h4 class="section-title">Important Notes</h4>
                 <p class="text-muted">{{ package.notes }}</p>
             </div>
+            <div class="info-section">
+
+                <div class="info-box">
+                    <h3>PAYMENT TERMS</h3>
+                    <ul>
+                        <li>30% advance payment due upon confirmation.</li>
+                        <li>70% balance payment when the tour starts.</li>
+                    </ul>
+                </div>
+
+                <div class="info-box">
+                    <h3>CANCELLATION POLICY</h3>
+                    <ul>
+                        <li>Up to 30 days prior to arrival date: 30% refund.</li>
+                        <li>Less than 30 days prior to arrival date: no refund.</li>
+                        <li>No-shows, delayed arrival, aborted/shortened stay: no refund.</li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="hotel-table-container">
+                <h2 class="hotel-title">Accommodation Details</h2>
+
+                <table class="hotel-table">
+                    <thead>
+                        <tr>
+                            <th>Location</th>
+                            <th>Name of The Hotels / Camp / Cottage / Similar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Srinagar</td>
+                            <td>Bilal Guest House, Shabaz Guest House, Snow Gost Houseboat</td>
+                        </tr>
+                        <tr>
+                            <td>Kargil</td>
+                            <td>Brown Hill Hotel, Di-zogila and Nunkun Camp Shargole</td>
+                        </tr>
+                        <tr>
+                            <td>Leh</td>
+                            <td>Ratna Hotel Ladakh, Sai Ladakh, Hotel Riryab</td>
+                        </tr>
+                        <tr>
+                            <td>Turtuk</td>
+                            <td>Baghdour Guest House, Apricot Inn Guest House</td>
+                        </tr>
+                        <tr>
+                            <td>Hunder</td>
+                            <td>Pika Camp, Sahara Camp Nubra</td>
+                        </tr>
+                        <tr>
+                            <td>Pangong</td>
+                            <td>Blue Next Cottage, Pangong Residency and Lake View</td>
+                        </tr>
+                        <tr>
+                            <td>Hanle</td>
+                            <td>Padma Homestay, Lamo Homestay</td>
+                        </tr>
+                        <tr>
+                            <td>Tsomoriri</td>
+                            <td>Lake View Hotel</td>
+                        </tr>
+                        <tr>
+                            <td>Sarchu</td>
+                            <td>Red Rock Camp</td>
+                        </tr>
+                        <tr>
+                            <td>Manali</td>
+                            <td>Ride Inn Hotel</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+
         </div>
 
         <div class="col-lg-4">
@@ -77,7 +193,17 @@
                     <p class="mb-1"><strong>Duration:</strong> {{ package.duration }}</p>
                     <p class="mb-1"><strong>Price:</strong> ₹{{ package.price }}</p>
                     <p class="mb-3"><strong>Tags:</strong> <span *ngFor="let t of package.tags"
-                            class="badge bg-outline-brand mx-1 me-1">{{ t }}</span></p>
+                            class="badge bg-outline-brand mx-1 me-1"><a [routerLink]="['/packages']"
+                                [queryParams]="{ region: t }" class="text-decoration-none">{{ t }}</a></span></p>
+                    <div *ngIf="package.tourTypes?.length" class="mb-3">
+                        <strong>Tour types:</strong>
+                        <div class="mt-2">
+                            <span *ngFor="let tt of package.tourTypes"
+                                class="badge bg-light text-dark me-1 px-2 py-1"><a [routerLink]="['/packages']"
+                                    [queryParams]="{ type: tt }" class="text-decoration-none text-dark">{{ tt
+                                    }}</a></span>
+                        </div>
+                    </div>
 
                     <h6 class="mt-3">Price Breakdown</h6>
                     <ul class="list-unstyled small">
@@ -86,7 +212,8 @@
                     </ul>
 
                     <div class="d-grid gap-2 mt-3">
-                        <a class="btn btn-brand" role="button">Book Now</a>
+                        <a [routerLink]="['/contact']" [queryParams]="{ package: package.slug }"
+                            class="btn btn-brand">Book Now</a>
                         <a routerLink="/packages" class="btn btn-outline-brand">Back to Packages</a>
                     </div>
                 </div>
@@ -95,9 +222,11 @@
             <!-- Inclusions / Exclusions -->
             <div class="mt-4">
                 <h5 class="section-title">Inclusions</h5>
-                <ul class="list-group list-group-flush mb-3">
-                    <li class="list-group-item" *ngFor="let inc of package.inclusions">{{ inc }}</li>
-                </ul>
+                <div class="d-flex">
+                    <ul class="list-group list-group-flush mb-3">
+                        <li class="list-group-item" *ngFor="let inc of package.inclusions">{{ inc }}</li>
+                    </ul>
+                </div>
 
                 <h5 class="section-title">Exclusions</h5>
                 <ul class="list-group list-group-flush">
@@ -110,8 +239,25 @@
     <!-- Recommended Packages -->
     <div class="recommended-tours mt-5">
         <h3 class="fw-bold mb-4 text-center">Recommended Packages</h3>
+
+        <!-- Recommended Filters -->
+        <div class="row mb-3 justify-content-center">
+            <div class="col-md-3">
+                <select class="form-select" [(ngModel)]="selectedRecRegion"
+                    (ngModelChange)="onRecommendedFilterChange()">
+                    <option [ngValue]="null">All regions</option>
+                    <option *ngFor="let r of availableRegions" [value]="r">{{ r }}</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <select class="form-select" [(ngModel)]="selectedRecType" (ngModelChange)="onRecommendedFilterChange()">
+                    <option [ngValue]="null">All types</option>
+                    <option *ngFor="let t of availableTypes" [value]="t">{{ t }}</option>
+                </select>
+            </div>
+        </div>
         <div class="row g-4">
-            <div class="col-md-4" *ngFor="let tour of recommendedPackages">
+            <div class="col-md-4" *ngFor="let tour of recommendedDisplayed">
                 <div class="card h-100 shadow-sm">
                     <img [src]="tour.images[0]" class="card-img-top" [alt]="tour.title">
                     <div class="card-body d-flex flex-column">

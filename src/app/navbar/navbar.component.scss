@@ -35,3 +35,30 @@
   -webkit-text-fill-color: transparent;
   font-weight: 700;
 }
+
+/* Offcanvas (mobile) header styling */
+.offcanvas-header.bg-brand {
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+
+.mobile-logo {
+  width: 44px;
+  height: 44px;
+  object-fit: cover;
+  border: 2px solid rgba(255,255,255,0.18);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+}
+
+.mobile-title-wrap .offcanvas-title {
+  font-size: 1.05rem;
+  letter-spacing: 0.2px;
+}
+
+.mobile-call { text-decoration:none; padding:4px 8px; border-radius: 20px; background: rgba(255,255,255,0.08); }
+.mobile-call i { font-size: .9rem; }
+
+/* Ensure this header style only matches the mobile offcanvas — not the desktop area */
+@media (min-width: 992px) {
+  #mobileMenuLabel, .mobile-logo, .mobile-call { display: none !important; }
+}

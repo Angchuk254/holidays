@@ -40,13 +40,13 @@ export class FaqComponent {
     },
     {
       title: 'Spiti Valley Expedition',
-      slug: 'spiti-valley-expedition',
+      slug: 'spiti-valley-exploration',
       shortDescription: 'Explore the stunning landscapes and monasteries of Spiti.',
       image: 'assets/road-ladakh.jpeg'
     },
     {
       title: 'Kashmir Paradise Tour',
-      slug: 'kashmir-paradise-tour',
+      slug: 'kashmir-scenic-trip',
       shortDescription: 'Discover the serene beauty of Dal Lake and Gulmarg.',
       image: 'assets/kas.jpeg'
     }
