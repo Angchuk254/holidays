@@ -1,48 +1,138 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* Global design system */
 :root {
-  --brand-cobalt: #0047ab; /* cobalt blue */
-  --brand-light: #f8f9fa;
-  --text-light: #ffffff;
-  --text-dark: #212529;
-}
-.btn-brand {
-  background-color: var(--brand-cobalt);
-  color: white;
-  border-radius: 25px;
-  font-weight: 500;
-  transition: all 0.3s ease;
+  --brand-ink: #0f172a;
+  --brand-cobalt: #1d4ed8;
+  --brand-mint: #14b8a6;
+  --brand-light: #f8fafc;
+  --surface: #ffffff;
+  --surface-alt: #f1f5f9;
+  --text-dark: #0f172a;
+  --text-muted: #475569;
+  --shadow-lg: 0 16px 40px rgba(15, 23, 42, 0.12);
 }
 
-.btn-brand:hover {
-  background-color: #003a8c;
-  color: #fff;
+* {
+  box-sizing: border-box;
 }
 
-/* Shared accordion / FAQ styles (kept global so all service pages match the FAQ look) */
+body {
+  font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  color: var(--text-dark);
+  background: var(--brand-light);
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.section-title {
+  font-weight: 700;
+  color: var(--brand-ink);
+}
+
 .text-brand {
   color: var(--brand-cobalt);
 }
 
+.btn-brand {
+  background: linear-gradient(135deg, var(--brand-cobalt), #0ea5e9);
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  font-weight: 600;
+  padding: 0.6rem 1.4rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-brand:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-lg);
+  color: #fff;
+}
+
+.btn-outline-brand {
+  border: 1px solid rgba(29, 78, 216, 0.5);
+  color: var(--brand-cobalt);
+  border-radius: 999px;
+  font-weight: 600;
+  padding: 0.55rem 1.3rem;
+}
+
+.btn-outline-brand:hover {
+  background: rgba(29, 78, 216, 0.1);
+  color: var(--brand-cobalt);
+}
+
+.card {
+  border: none;
+  border-radius: 18px;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+}
+
+.badge.bg-outline-brand {
+  border: 1px solid rgba(29, 78, 216, 0.25);
+  background: rgba(29, 78, 216, 0.08);
+  color: var(--brand-cobalt);
+}
+
+/* Shared accordion / FAQ styles (kept global so all service pages match the FAQ look) */
 .accordion-button:focus {
   box-shadow: none;
 }
 
 .accordion-button:not(.collapsed) {
-  background-color: var(--brand-cobalt);
+  background: linear-gradient(135deg, var(--brand-cobalt), var(--brand-mint));
   color: #fff;
 }
 
 .accordion-item {
-  border-radius: 10px;
+  border-radius: 14px;
   overflow: hidden;
   border: none;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.1);
 }
 
-
-
-.modern-table td ,th{
-  border: 1px solid #000;
+.modern-table td, .modern-table th {
+  border: 1px solid #e2e8f0;
   width: max-content;
-  padding: 5px;
+  padding: 10px 12px;
+}
+
+/* Floating WhatsApp CTA */
+.whatsapp-float {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #25d366;
+  color: #fff;
+  font-size: 28px;
+  z-index: 1050;
+  box-shadow: 0 16px 30px rgba(15, 23, 42, 0.25);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.whatsapp-float:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 20px 36px rgba(15, 23, 42, 0.3);
+  color: #fff;
+}
+
+@media (max-width: 576px) {
+  .whatsapp-float {
+    right: 16px;
+    bottom: 16px;
+    width: 52px;
+    height: 52px;
+    font-size: 26px;
+  }
 }

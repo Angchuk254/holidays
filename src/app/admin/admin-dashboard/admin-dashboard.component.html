@@ -1,0 +1,57 @@
+<section class="admin-dashboard">
+    <header class="dashboard-header">
+        <div>
+            <h1>Admin Dashboard</h1>
+            <p>Contact form submissions from the website</p>
+        </div>
+        <button class="btn btn-outline-brand" (click)="logout()">Logout</button>
+    </header>
+
+    <div class="dashboard-controls">
+        <input class="form-control" placeholder="Search by name, email, phone, message"
+            [(ngModel)]="search">
+        <div class="stats">
+            <div class="stat-card">
+                <h6>Total Requests</h6>
+                <strong>{{ contacts.length }}</strong>
+            </div>
+            <div class="stat-card">
+                <h6>Filtered</h6>
+                <strong>{{ filteredContacts.length }}</strong>
+            </div>
+        </div>
+    </div>
+
+    <div class="card table-card">
+        <div class="card-body">
+            <div *ngIf="loading" class="text-muted">Loading contact messages...</div>
+            <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
+
+            <div class="table-responsive" *ngIf="!loading && !error">
+                <table class="table table-hover align-middle">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Message</th>
+                            <th>Created</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of filteredContacts; trackBy: trackById">
+                            <td>{{ item.name }}</td>
+                            <td>{{ item.email }}</td>
+                            <td>{{ item.phone || '-' }}</td>
+                            <td class="message-cell">{{ item.message }}</td>
+                            <td>{{ item.createdAt ? (item.createdAt | date:'medium') : '-' }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div *ngIf="filteredContacts.length === 0" class="text-muted py-4 text-center">
+                    No contact requests found.
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

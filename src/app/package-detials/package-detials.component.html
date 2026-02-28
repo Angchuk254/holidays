@@ -1,6 +1,6 @@
 <section class="container py-5" *ngIf="package">
     <h1 class="fw-bold mb-3">{{ package.title }}</h1>
-    <p class="text-muted mb-2">Duration: {{ package.duration }} | Price: ₹{{ package.price }}</p>
+    <p class="text-muted mb-2">Duration: {{ package.duration }} </p>
 
     <!-- Carousel -->
     <div id="packageCarousel" class="carousel slide mb-4" data-bs-ride="carousel">
@@ -61,45 +61,8 @@
                     </div>
                 </div>
             </div>
-            <div *ngIf="package.bike" class="mb-4">
-                <div class="table-container">
-                    <table class="modern-table">
-                        <thead>
-                            <tr>
-                                <th>S.NO</th>
-                                <th>Bike</th>
-                                <th>Price / Pax</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>01</td>
-                                <td>Own Bike</td>
-                                <td>10,500/-</td>
-                            </tr>
-                            <tr>
-                                <td>02</td>
-                                <td>Standard 500 CC Dual</td>
-                                <td>13,500/-</td>
-                            </tr>
-                            <tr>
-                                <td>03</td>
-                                <td>Himalayan 411 CC Dual</td>
-                                <td>15,500/-</td>
-                            </tr>
-                            <tr>
-                                <td>04</td>
-                                <td>Standard 500 CC Solo</td>
-                                <td>17,500/-</td>
-                            </tr>
-                            <tr>
-                                <td>05</td>
-                                <td>Himalayan 411 CC Solo</td>
-                                <td>19,500/-</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+            <div *ngIf="safeBikeHtml" class="mb-4">
+                <div class="table-container" [innerHTML]="safeBikeHtml"></div>
             </div>
             <!-- Notes -->
             <div *ngIf="package.notes" class="mb-4">
@@ -191,7 +154,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Quick Facts</h5>
                     <p class="mb-1"><strong>Duration:</strong> {{ package.duration }}</p>
-                    <p class="mb-1"><strong>Price:</strong> ₹{{ package.price }}</p>
+                    <!-- <p class="mb-1"><strong>Price:</strong> ₹{{ package.price }}</p> -->
                     <p class="mb-3"><strong>Tags:</strong> <span *ngFor="let t of package.tags"
                             class="badge bg-outline-brand mx-1 me-1"><a [routerLink]="['/packages']"
                                 [queryParams]="{ region: t }" class="text-decoration-none">{{ t }}</a></span></p>
@@ -205,11 +168,11 @@
                         </div>
                     </div>
 
-                    <h6 class="mt-3">Price Breakdown</h6>
+                    <!-- <h6 class="mt-3">Price Breakdown</h6>
                     <ul class="list-unstyled small">
                         <li *ngFor="let p of package.priceBreakdown">{{ p.label }}: <strong>₹{{ p.amount }}</strong>
                         </li>
-                    </ul>
+                    </ul> -->
 
                     <div class="d-grid gap-2 mt-3">
                         <a [routerLink]="['/contact']" [queryParams]="{ package: package.slug }"

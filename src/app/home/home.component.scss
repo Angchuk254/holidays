@@ -1,307 +1,153 @@
 .hero-img {
-  height: 60vh;
+  height: 68vh;
   object-fit: cover;
-  filter: brightness(0.75);
+  filter: brightness(0.7);
   transition: transform 6s ease;
 }
 
 .carousel-item.active .hero-img {
-  transform: scale(1.05);
+  transform: scale(1.06);
 }
 
 .carousel-caption {
-  bottom: 20%;
+  bottom: 22%;
 }
 
 .text-shadow {
-  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
-}
-.card-img-top {
-  height: 220px;
-  object-fit: cover;
-  transition: transform 0.5s ease;
+  text-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
 }
 
-.card:hover .card-img-top {
-  transform: scale(1.05);
-}
-
-.card-title {
-  color: var(--brand-cobalt);
-}
-
-.btn-brand {
-  background-color: var(--brand-cobalt);
-  color: #fff;
-  border-radius: 25px;
-  transition: background-color 0.3s ease;
-}
-
-.btn-brand:hover {
-  background-color: #00378a;
-}
-/* About Section Container */
-section.about {
-  padding: 5rem 0;
-}
-
-/* Heading */
-section.about h2 {
-  color: var(--brand-cobalt); /* cobalt blue brand color */
-  font-weight: 700;
-  margin-bottom: 2rem;
-  text-align: left;
-}
-
-/* Paragraphs */
-section.about p {
-  font-size: 1rem;
-  line-height: 1.7;
-  color: #555; /* soft dark text */
-  margin-bottom: 1rem;
-}
-
-/* Image */
-section.about img {
-  width: 100%;
-  border-radius: 15px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-  transition: transform 0.5s ease;
-}
-
-section.about img:hover {
-  transform: scale(1.03);
-}
-
-/* Button */
-section.about .btn-brand {
-  background-color: var(--brand-cobalt);
-  color: #fff;
-  border-radius: 25px;
-  padding: 10px 25px;
-  font-weight: 500;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-section.about .btn-brand:hover {
-  background-color: #00378a;
-  transform: translateY(-2px);
-}
-
-/* Responsive Adjustments */
-@media (max-width: 992px) {
-  section.about h2 {
-    font-size: 2rem;
-    text-align: center;
-  }
-
-  section.about p {
-    font-size: 0.95rem;
-    text-align: center;
-  }
-
-  section.about .btn-brand {
-    display: block;
-    margin: 1.5rem auto 0 auto;
-  }
-
-  section.about .row {
-    align-items: center;
-  }
-
-  section.about img {
-    margin-bottom: 2rem;
-  }
-}
-:root {
-  --brand-cobalt: #0047ab;
-}
-
-.text-brand {
-  color: var(--brand-cobalt);
-}
-
-.btn-brand {
-  background-color: var(--brand-cobalt);
-  color: #fff;
-  border-radius: 25px;
-  transition: all 0.3s ease;
-}
-
-.btn-brand:hover {
-  background-color: #00378a;
-  transform: translateY(-2px);
-}
-
-.btn-outline-brand {
-  border: 2px solid var(--brand-cobalt);
-  color: var(--brand-cobalt);
-  border-radius: 25px;
-  padding: 0.5rem 1.5rem;
-}
-
-.btn-outline-brand:hover {
-  background-color: var(--brand-cobalt);
-  color: #fff;
-}
-
+.card-img-top,
 .trip-img,
 .package-img,
 .blog-img {
   height: 220px;
   object-fit: cover;
-  border-radius: 15px 15px 0 0;
+  border-radius: 18px 18px 0 0;
+  transition: transform 0.5s ease;
+}
+
+.card:hover .card-img-top,
+.card:hover .trip-img,
+.card:hover .package-img,
+.card:hover .blog-img {
+  transform: scale(1.04);
+}
+
+section.about img {
+  border-radius: 20px;
+  box-shadow: 0 18px 30px rgba(15, 23, 42, 0.2);
+  transition: transform 0.5s ease;
+}
+
+section.about img:hover {
+  transform: translateY(-4px) scale(1.01);
 }
 
 .gallery-thumb {
   width: 100%;
-  height: 100px;
+  height: 110px;
   object-fit: cover;
-  border-radius: 10px;
+  border-radius: 14px;
   transition: transform 0.3s ease;
 }
+
 .gallery-thumb:hover {
   transform: scale(1.05);
 }
 
 .cta {
-  background: var(--brand-cobalt);
-  padding: 4rem 0;
+  background: linear-gradient(135deg, #1d4ed8, #0ea5e9);
+  padding: 4.5rem 0;
+  border-radius: 28px;
+  margin: 0 1rem;
 }
+
 .services .nav-pills .nav-link {
-  color: #333;
-  border-radius: 25px;
-  margin: 0 5px;
+  color: var(--text-muted);
+  border-radius: 999px;
+  margin: 0 6px;
   font-weight: 600;
   transition: 0.3s;
+  border: 1px solid transparent;
 }
 
 .services .nav-pills .nav-link.active {
-  background-color: var(--brand-cobalt);
-  color: #fff;
+  background: rgba(29, 78, 216, 0.12);
+  color: var(--brand-cobalt);
+  border-color: rgba(29, 78, 216, 0.25);
 }
 
 .service-card {
-  border-radius: 15px;
+  border-radius: 16px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: var(--surface);
 }
 
 .service-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-}
-
-@media (max-width: 768px) {
-  .nav-pills {
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-  }
-  .nav-item {
-    flex: 0 0 auto;
-  }
+  box-shadow: 0 10px 26px rgba(15, 23, 42, 0.15);
 }
 
 @media (max-width: 768px) {
   .hero-img {
-    height: 30vh;
+    height: 34vh;
   }
 
   .carousel-caption {
-    bottom: 10%;
+    bottom: 12%;
   }
 
   .carousel-caption h2 {
     font-size: 1.5rem;
   }
-  /* removed problematic scrollbar manipulation that caused layout issues */
 }
 
-/* Horizontal scrolling helper for mobile card lists
-   - On small screens we disable wrapping and allow horizontal scroll
-   - On desktop the normal Bootstrap grid (row/cols) behavior remains
-*/
+/* Horizontal scrolling helper for mobile card lists */
 @media (max-width: 767.98px) {
   .horizontal-scroll {
-    display: flex; /* ensure flex container */
-    flex-wrap: nowrap; /* single row for horizontal scrolling */
+    display: flex;
+    flex-wrap: nowrap;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     gap: 1rem;
-    padding-bottom: 0; /* remove extra space so scrollbar won't be visible */
+    padding-bottom: 0;
     scroll-snap-type: x mandatory;
-
-    /* Hide scrollbars across browsers but keep scrolling functional */
-    -ms-overflow-style: none; /* Internet Explorer 10+ */
-    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
 
-  /* Make each column a fixed-width 'card' inside the scroller */
   .horizontal-scroll > [class*="col-"] {
     flex: 0 0 82%;
     max-width: 82%;
     scroll-snap-align: start;
   }
 
-  /* Slight margin on cards so they sit nicely while scrolling */
-  .horizontal-scroll .card {
-    margin-right: 0.5rem;
-  }
-
-  /* Optional nicer scrollbar for WebKit */
-  /* Hide WebKit scrollbar while keeping touch scroll */
   .horizontal-scroll::-webkit-scrollbar {
     display: none;
     height: 0;
   }
 
-  /* Improve visibility and spacing of service tabs on small screens */
   .services .nav-pills {
     gap: 0.5rem;
-    padding-bottom: 0; /* remove visible gap for scrollbar */
-    padding-left: 0.6rem; /* ensure first item isn't clipped */
-    padding-right: 0.6rem; /* ensure last item isn't clipped */
-    overflow-x: auto; /* enable horizontal scroll */
+    padding: 0 0.6rem;
+    overflow-x: auto;
     -webkit-overflow-scrolling: touch;
-    -ms-overflow-style: none; /* hide IE/Edge scrollbar */
-    scrollbar-width: none; /* hide Firefox scrollbar */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
 
   .services .nav-pills .nav-link {
     display: inline-block;
-    white-space: nowrap; /* prevent wrapping of text */
-    padding: 0.4rem 0.9rem; /* more tappable area */
+    white-space: nowrap;
+    padding: 0.45rem 0.95rem;
     font-size: 0.95rem;
-    border-radius: 20px;
-    background: rgba(
-      255,
-      255,
-      255,
-      0.03
-    ); /* subtle background so text remains readable */
-    color: #222; /* ensure high contrast */
-  }
-
-  .services .nav-pills .nav-link:hover {
-    background: rgba(0, 71, 171, 0.08);
   }
 
   .services .nav-item {
-    flex: 0 0 auto; /* ensure items don't shrink */
+    flex: 0 0 auto;
   }
 
-  /* Ensure nav items size to their content so labels are never clipped */
-  .services .nav-pills .nav-item {
-    min-width: max-content;
-  }
-
-  /* Add some scroll padding so the first/last items are fully visible when scrolled into view */
-  .services .nav-pills {
-    scroll-padding-left: 0.6rem;
-    scroll-padding-right: 0.6rem;
-  }
-
-  /* Hide WebKit scrollbar for the service tabs while keeping scrolling usable */
   .services .nav-pills::-webkit-scrollbar {
     display: none;
     height: 0;

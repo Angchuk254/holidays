@@ -1,0 +1,54 @@
+.admin-login {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at top, #1d4ed8 0%, #0f172a 60%);
+  padding: 2rem;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 420px;
+  background: #fff;
+  border-radius: 20px;
+  padding: 2.5rem;
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.25);
+}
+
+.brand {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.brand .logo {
+  font-weight: 700;
+  font-size: 1.4rem;
+  letter-spacing: 0.3px;
+  background: linear-gradient(90deg, #38bdf8, #34d399);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.brand p {
+  margin: 0.25rem 0 0;
+  color: #64748b;
+}
+
+.form-group {
+  margin-bottom: 1.2rem;
+}
+
+.helper {
+  text-align: center;
+  margin-top: 1.2rem;
+}
+
+.helper a {
+  color: #64748b;
+  text-decoration: none;
+}
+
+.helper a:hover {
+  text-decoration: underline;
+}

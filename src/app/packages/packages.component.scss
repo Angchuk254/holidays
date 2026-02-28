@@ -8,17 +8,6 @@
   transform: scale(1.05);
 }
 
-.btn-brand {
-  background-color: var(--brand-cobalt);
-  color: #fff;
-  border-radius: 25px;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-.btn-brand:hover {
-  background-color: #00378a;
-  transform: translateY(-2px);
-}
 .table-container {
   max-width: 700px;
   margin: 40px auto;
@@ -29,7 +18,7 @@
   text-align: center;
   font-size: 32px;
   font-weight: 700;
-  color: #5a2bbf;
+  color: var(--brand-cobalt);
   margin-bottom: 20px;
   letter-spacing: 1px;
 }
@@ -40,11 +29,11 @@
   background: white;
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
 }
 
 .modern-table thead {
-  background: #5a2bbf;
+  background: linear-gradient(120deg, var(--brand-cobalt), #0ea5e9);
   color: white;
 }
 
@@ -60,7 +49,7 @@
 }
 
 .modern-table tbody tr:hover {
-  background: #f3f0ff;
+  background: #f1f5ff;
   transition: 0.2s ease-in-out;
 }
 

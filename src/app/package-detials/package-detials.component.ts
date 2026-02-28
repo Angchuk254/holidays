@@ -72,12 +72,29 @@ export class PackageDetialsComponent {
     if (!this.package) return;
 
     // Title & meta
+    const description = this.package.shortDescription || '';
+    const rawImage = (this.package.images && this.package.images.length) ? this.package.images[0] : '/assets/ladakh-main.jpeg';
+    const image = rawImage.startsWith('http') ? rawImage : `${window.location.origin}/${rawImage.replace(/^\/+/, '')}`;
+    const keywordParts = [
+      this.package.title,
+      ...(this.package.tags || []),
+      ...(this.package.tourTypes || []),
+      'Ladakh tour',
+      'trip',
+      'travel package'
+    ];
+    const keywords = Array.from(new Set(keywordParts.filter(Boolean))).join(', ');
+
     this.titleService.setTitle(`${this.package.title} — Golo Holidays`);
-    this.metaService.updateTag({ name: 'description', content: this.package.shortDescription || '' });
+    this.metaService.updateTag({ name: 'description', content: description });
+    this.metaService.updateTag({ name: 'keywords', content: keywords });
     this.metaService.updateTag({ property: 'og:title', content: this.package.title });
-    this.metaService.updateTag({ property: 'og:description', content: this.package.shortDescription || '' });
-    this.metaService.updateTag({ property: 'og:image', content: (this.package.images && this.package.images.length) ? this.package.images[0] : '/assets/og-image.jpg' });
+    this.metaService.updateTag({ property: 'og:description', content: description });
+    this.metaService.updateTag({ property: 'og:image', content: image });
+    this.metaService.updateTag({ property: 'og:url', content: window.location.href });
     this.metaService.updateTag({ name: 'twitter:card', content: 'summary_large_image' });
+    this.metaService.updateTag({ name: 'twitter:title', content: this.package.title });
+    this.metaService.updateTag({ name: 'twitter:description', content: description });
 
     // canonical
     try {

@@ -10,9 +10,9 @@ import { Component } from '@angular/core';
 export class AboutUSComponent {
   team = [
     { name: 'Tashi Dawa', role: 'Founder & CEO', photo: 'assets/ladakh-bike-pangong.jpeg' },
-    { name: 'Tenzing Lama', role: 'Tour Manager', photo: 'assets/ladakh-bike-pangong.jpeg' },
-    { name: 'Riya Sharma', role: 'Marketing Head', photo: 'assets/ladakh-bike-pangong.jpeg' },
-    { name: 'Ankit Verma', role: 'Operations Lead', photo: 'assets/ladakh-bike-pangong.jpeg' }
+    // { name: 'Tenzing Lama', role: 'Tour Manager', photo: 'assets/ladakh-bike-pangong.jpeg' },
+    // { name: 'Riya Sharma', role: 'Marketing Head', photo: 'assets/ladakh-bike-pangong.jpeg' },
+    // { name: 'Ankit Verma', role: 'Operations Lead', photo: 'assets/ladakh-bike-pangong.jpeg' }
   ];
   ngOnInit() {
     window.scrollTo({ top: 0, behavior: 'smooth' });

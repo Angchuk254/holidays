@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { pushToPath } from './firebase.service';
-import { environment } from '../../environments/environment.development';
+import { initFirebase, pushToPath } from './firebase.service';
+import { onValue, ref } from 'firebase/database';
+import { environment } from '../../environments/environment';
 
 export interface ContactPayload {
     name: string;
@@ -8,6 +9,10 @@ export interface ContactPayload {
     phone?: string;
     message: string;
     createdAt?: string;
+}
+
+export interface ContactRecord extends ContactPayload {
+    id: string;
 }
 
 @Injectable({ providedIn: 'root' })
@@ -31,6 +36,23 @@ export class ContactService {
         }
 
         return key;
+    }
+
+    subscribeToContacts(onUpdate: (items: ContactRecord[]) => void, onError?: (err: any) => void) {
+        const db = initFirebase();
+        const listRef = ref(db, this.path);
+        const unsubscribe = onValue(listRef, (snapshot) => {
+            const data = snapshot.val() || {};
+            const items: ContactRecord[] = Object.keys(data).map(id => ({
+                id,
+                ...data[id]
+            }));
+            items.sort((a, b) => (b.createdAt || '').localeCompare(a.createdAt || ''));
+            onUpdate(items);
+        }, (err) => {
+            if (onError) onError(err);
+        });
+        return unsubscribe;
     }
 
     private async notifyWebhook(url: string, secret: string, payload: any) {

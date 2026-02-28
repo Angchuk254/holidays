@@ -69,14 +69,30 @@ export class BlogDetailsComponent {
   private applyMetaAndSchema() {
     if (!this.blog) return;
 
+    const description = this.blog.summary || this.blog.shortDescription || '';
+    const rawImage = this.blog.image || '/assets/ladakh-main.jpeg';
+    const image = rawImage.startsWith('http') ? rawImage : `${window.location.origin}/${rawImage.replace(/^\/+/, '')}`;
+    const keywordParts = [
+      this.blog.title,
+      ...(this.blog.tags || []),
+      'Ladakh travel',
+      'tour',
+      'trip guide'
+    ];
+    const keywords = Array.from(new Set(keywordParts.filter(Boolean))).join(', ');
+
     // Title + meta tags
     this.titleService.setTitle(`${this.blog.title} — Golo Holidays`);
-    this.metaService.updateTag({ name: 'description', content: this.blog.summary || this.blog.shortDescription || '' });
+    this.metaService.updateTag({ name: 'description', content: description });
+    this.metaService.updateTag({ name: 'keywords', content: keywords });
     this.metaService.updateTag({ property: 'og:title', content: this.blog.title });
-    this.metaService.updateTag({ property: 'og:description', content: this.blog.summary || this.blog.shortDescription || '' });
-    this.metaService.updateTag({ property: 'og:image', content: this.blog.image || '/assets/og-image.jpg' });
+    this.metaService.updateTag({ property: 'og:description', content: description });
+    this.metaService.updateTag({ property: 'og:image', content: image });
     this.metaService.updateTag({ property: 'og:type', content: 'article' });
+    this.metaService.updateTag({ property: 'og:url', content: window.location.href });
     this.metaService.updateTag({ name: 'twitter:card', content: 'summary_large_image' });
+    this.metaService.updateTag({ name: 'twitter:title', content: this.blog.title });
+    this.metaService.updateTag({ name: 'twitter:description', content: description });
 
     // update canonical link
     try {
@@ -104,7 +120,7 @@ export class BlogDetailsComponent {
       '@type': 'Article',
       headline: this.blog.title,
       description: this.blog.summary || this.blog.shortDescription || '',
-      image: [this.blog.image || '/assets/og-image.jpg'],
+      image: [image],
       author: {
         '@type': 'Person',
         name: this.blog.author || 'Golo Holidays'
